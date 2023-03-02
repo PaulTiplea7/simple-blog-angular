@@ -1,0 +1,9 @@
+
+<div class="content">
+    <p class="author-section">Author: <span>{{post.author}}</span></p>
+    <p class="email-section">Email:<span>{{post.email}}</span></p>
+    <p class="title-section"> Title:<span>{{post.title}}</span></p>
+    <p class="tags-section">Tags:<span class="tag" *ngFor="let tag of post.tags; index as i;">#{{tag}}</span></p>
+    <p class="content-section">Content: <span>{{post.content}}</span></p>
+  <button routerLink="/posts" class="back-button">Go to posts</button>
+</div>
