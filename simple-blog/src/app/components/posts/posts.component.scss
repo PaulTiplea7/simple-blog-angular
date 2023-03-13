@@ -1,48 +1,36 @@
-.card{
-  min-width: 300px;
-  max-width: 500px;
-  background: gainsboro;
-  border-radius: 10px;
-  padding-top: 5px;
-  text-align: center;
-  margin: 10px;
-}
-.content{
+.posts {
   margin-left: 5%;
   margin-right: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
-}
+  .post {
+    display: flex;
+    width: 500px;
+    // NOTE: Use color codes always - never names
+    background: rgba(220, 220, 220, 1);
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
 
-.post-title{
-  color:salmon
-}
-.tag{
-  color: rgb(0, 148, 133);
-  padding: 3px;
-}
-.back-button{
+    &__title {
+      color: salmon;
+    }
 
-  cursor: pointer;
-  outline: 0;
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 16px;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  :hover {
-      color: #fff;
-      background-color: #0b5ed7;
-      border-color: #0a58ca;
+    &__tags {
+      color: rgb(0, 148, 133);
+      padding: 3px;
+    }
+
+    &:hover {
+      // NOTE: Indicate something is clickable by updating its style when focused
+      background: rgba(220, 220, 220, 0.5);
+      cursor: pointer;
+    }
   }
-
 }

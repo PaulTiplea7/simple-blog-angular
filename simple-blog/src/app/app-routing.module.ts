@@ -5,13 +5,15 @@ import { PostComponent } from './components/post/post.component';
 import { PostsComponent } from './components/posts/posts.component';
 
 const routes: Routes = [
+  // NOTE: In general add default route
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'posts', component: PostsComponent},
-  { path: 'posts/:id', component: PostComponent},
+  { path: 'posts', component: PostsComponent },
+  { path: 'posts/:id', component: PostComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import data from "../../../assets/blog-posts.json";
-import { Router } from '@angular/router';
-
+// NOTE: Use data from files in centralized places like services and only once
+// import data from "../../../assets/blog-posts.json";
+import { PostsService } from 'src/app/services/posts.service';
+import { Observable } from 'rxjs';
+import { Post } from 'src/app/types/post.model';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
+  // NOTE: Don't leave unused proprieties
+  constructor(private readonly postsService: PostsService) {}
 
-  constructor(private router:Router){
-
-  }
-
-  posts = data;
+  // NOTE: Type everything
+  posts$: Observable<Post[]> | undefined;
 
   ngOnInit() {
-    console.log(data)
+    this.posts$ = this.postsService.getAll();
   }
-
 }
