@@ -1,9 +1,20 @@
-
-<div class="content">
-    <p class="author-section">Author: <span>{{post.author}}</span></p>
-    <p class="email-section">Email:<span>{{post.email}}</span></p>
-    <p class="title-section"> Title:<span>{{post.title}}</span></p>
-    <p class="tags-section">Tags:<span class="tag" *ngFor="let tag of post.tags; index as i;">#{{tag}}</span></p>
-    <p class="content-section">Content: <span>{{post.content}}</span></p>
-  <button routerLink="/posts" class="back-button">Go to posts</button>
+<div class="post" *ngIf="post$ | async as post">
+  <p class="post__section post__section__author">
+    Author: <span>{{ post.author }}</span>
+  </p>
+  <p class="post__section post__section__email">
+    Email:<span>{{ post.email }}</span>
+  </p>
+  <p class="post__section post__section__title">
+    Title:<span>{{ post.title }}</span>
+  </p>
+  <p class="post__section post__section__tags">
+    Tags:<span class="tag" *ngFor="let tag of post.tags; index as i">
+      #{{ tag }}
+    </span>
+  </p>
+  <p class="post__section post__section__content">
+    Content: <span>{{ post.content }}</span>
+  </p>
+  <button routerLink="/posts" class="btn__back">Go to posts</button>
 </div>

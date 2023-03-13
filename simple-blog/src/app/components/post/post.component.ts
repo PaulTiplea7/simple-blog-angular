@@ -1,34 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import data from "../../../assets/blog-posts.json";
+import data from '../../../assets/blog-posts.json';
 import { ActivatedRoute } from '@angular/router';
+import { Post } from 'src/app/types/post.model';
+import { filter, map, Observable } from 'rxjs';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-
   posts = data;
-  id : any;
-  post:any
+  id: string | undefined;
+  // NOTE: Use observables
+  post$: Observable<Post> | undefined;
 
-  constructor(private route: ActivatedRoute){
-
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private readonly postsService: PostsService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = params['id']
-    });
-    this.post = this.posts.find(element => element.id == this.id);
-
-    console.log(this.post)
-
-
-}
-
-
-
-
+    this.post$ = this.route.params.pipe(
+      map((params) => {
+        this.id = params['id'];
+        if (!this.id) return;
+        return this.postsService.getOne(this.id);
+      }),
+      filter((post) => !!post), // Do not emit if post is null or undefined
+      map((definedPost) => definedPost as Post) // Force cast since filer removed the undefined / null possibilities
+    );
+  }
 }

@@ -1,49 +1,34 @@
-.content{
+// NOTE: BEM Notation!!
+// NOTE: Use color codes not color names
+
+.post {
   margin-left: 5%;
   margin-right: 5%;
-}
-.tag{
-  color: rgb(0, 148, 133);
-  padding: 3px;
-}
-span{
-  color: black;
-}
-.author-section{
-  color:violet;
-}
-.title-section{
-  color:orangered
-}
-.content-section{
-  color:salmon
-}
-.email-section{
-  color:seagreen;
-}
-.tags-section{
-  color: rebeccapurple;
-}
-.back-button{
 
-  cursor: pointer;
-  outline: 0;
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 16px;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  :hover {
-      color: #fff;
-      background-color: #0b5ed7;
-      border-color: #0a58ca;
+  &__section {
+    span {
+      color: rgba(0, 0, 0, 1);
+    }
+
+    &__author {
+      color: rgb(238, 130, 238);
+    }
+    &__title {
+      color: rgb(255, 69, 0);
+    }
+    &__content {
+      color: rgb(250, 128, 114);
+    }
+    &__email {
+      color: rgb(46, 139, 87);
+    }
+    &__tags {
+      color: rgb(102, 51, 153);
+
+      .tag {
+        color: rgb(0, 148, 133);
+        padding: 3px;
+      }
+    }
   }
-
 }
